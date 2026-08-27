@@ -34,69 +34,79 @@
             }
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: var(--fundo); color: var(--texto-principal); display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 1rem; }
-        
-        .login-card { background: var(--card); border: 1px solid var(--borda); border-radius: var(--raio); padding: 2.5rem; max-width: 400px; width: 100%; box-shadow: var(--sombra); text-align: center; }
-        h1 { font-family: 'Lexend', sans-serif; color: var(--primaria); margin-bottom: 0.5rem; font-size: 2rem; }
-        p { color: var(--texto-apoio); margin-bottom: 2rem; font-size: 0.95rem; }
-        
-        .form-group { text-align: left; margin-bottom: 1.25rem; }
-        label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--texto-principal); }
-        input { width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--borda); border-radius: calc(var(--raio) / 2); background: var(--fundo); color: var(--texto-principal); font-size: 1rem; transition: var(--transicao); }
-        input:focus { outline: none; border-color: var(--primaria); box-shadow: 0 0 0 3px var(--primaria-clara); }
-        
-        /* Mensagem de erro de login */
-        .error-message { color: var(--perigo); font-size: 0.85rem; margin-bottom: 1rem; text-align: left; display: none; font-weight: 600; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
 
-        .btn { display: block; width: 100%; background-color: var(--primaria); color: #ffffff; padding: 0.75rem; border-radius: calc(var(--raio) / 2); text-decoration: none; font-weight: 600; text-align: center; transition: var(--transicao); border: none; cursor: pointer; font-size: 1rem; margin-top: 1.5rem; }
-        .btn:hover { opacity: 0.9; transform: translateY(-1px); }
+        body {
+            background-color: var(--fundo);
+            color: var(--texto-principal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 1rem;
+        }
+
+        .login-card {
+            background: var(--card);
+            border: 1px solid var(--borda);
+            border-radius: var(--raio);
+            padding: 2.5rem;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: var(--sombra);
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Lexend', sans-serif;
+            color: var(--primaria);
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+
+        p {
+            color: var(--texto-apoio);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            background-color: var(--primaria);
+            color: #ffffff;
+            padding: 0.75rem;
+            border-radius: calc(var(--raio) / 2);
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: var(--transicao);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
     </style>
 </head>
 <body>
 
     <div class="login-card">
         <h1>Luz & Pele</h1>
-        <p>Insira suas credenciais para acessar o guia especializado de cuidados.</p>
+        <p>Clique abaixo para acessar o guia especializado de cuidados.</p>
         
-        <!-- O id="loginForm" permite capturar o envio dos dados via JavaScript -->
-        <form id="loginForm">
-            <div class="form-group">
-                <label for="email">E-mail de Acesso</label>
-                <input type="email" id="email" required placeholder="seu@email.com">
-            </div>
-            <div class="form-group">
-                <label for="senha">Senha</label>
-                <input type="password" id="senha" required placeholder="••••••••">
-            </div>
-            
-            <!-- Elemento oculto para avisar se as credenciais estiverem erradas -->
-            <div id="errorMsg" class="error-message">E-mail ou senha incorretos. Tente novamente.</div>
-
-            <button type="submit" class="btn">Entrar no Guia</button>
-        </form>
+        <!-- O botão agora funciona como um link direto para o painel -->
+        <a href="painel.html" class="btn">Acessar o Guia</a>
     </div>
-
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Impede o envio padrão para validar primeiro
-            
-            const email = document.getElementById('email').value.trim();
-            const senha = document.getElementById('senha').value;
-            const errorMsg = document.getElementById('errorMsg');
-
-            // DEFINA AQUI AS CREDENCIAIS DE ACESSO DO SEU PACIENTE:
-            const emailValido = "paciente@luzepele.com.br";
-            const senhaValida = "luz2026";
-
-            if (email === emailValido && senha === senhaValida) {
-                errorMsg.style.display = 'none';
-                window.location.href = 'painel.html'; // Redireciona para o painel com mídias corrigidas
-            } else {
-                errorMsg.style.display = 'block'; // Mostra mensagem de erro na tela
-            }
-        });
-    </script>
 
 </body>
 </html>
