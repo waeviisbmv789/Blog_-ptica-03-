@@ -1,0 +1,254 @@
+/* ==========================================================================
+   VARIÁVEIS DE DESIGN (TEMA CLARO E ESCURO)
+   ========================================================================== */
+:root {
+    --primaria: #0f4c81; /* Classic Blue */
+    --primaria-clara: #e8f0f6;
+    --secundaria: #10b981;
+    --destaque: #f59e0b;
+    --perigo: #dc2626;
+    
+    --fundo: #fcfcfd;
+    --card: #ffffff;
+    --texto-principal: #1a1c1e;
+    --texto-apoio: #49454f;
+    --borda: #e0e2e6;
+    
+    --sombra: 0 4px 20px -5px rgba(0, 0, 0, 0.08);
+    --raio: 16px;
+    --transicao: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --fundo: #0b0e14;
+        --card: #161b22;
+        --texto-principal: #f0f6fc;
+        --texto-apoio: #8b949e;
+        --borda: #30363d;
+        --primaria-clara: #162a3d;
+    }
+}
+
+/* ==========================================================================
+   RESETS E CONFIGURAÇÃO BASE
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--fundo);
+    color: var(--texto-principal);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 2rem 1rem;
+}
+
+/* Ajuste específico para centralizar a tela de login verticalmente */
+body.login-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   ESTRUTURA E LAYOUT (CONTAINERS E GRIDS)
+   ========================================================================== */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.header h1 {
+    font-family: 'Lexend', sans-serif;
+    font-size: 2.2rem;
+    color: var(--primaria);
+    margin-bottom: 0.5rem;
+}
+
+.media-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+    .media-section {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* ==========================================================================
+   COMPONENTES DE CARD (LOGIN E CONTEÚDO)
+   ========================================================================== */
+.card {
+    background-color: var(--card);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+    padding: 2rem;
+    box-shadow: var(--sombra);
+    transition: var(--transicao);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.15);
+}
+
+.login-card {
+    background: var(--card);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+    padding: 2.5rem;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: var(--sombra);
+    text-align: center;
+}
+
+.media-card {
+    background: var(--card);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+    padding: 1.5rem;
+    box-shadow: var(--sombra);
+}
+
+.media-card h2 {
+    font-family: 'Lexend', sans-serif;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* ==========================================================================
+   FORMULÁRIOS E ENTRADA DE DADOS
+   ========================================================================== */
+.form-group {
+    text-align: left;
+    margin-bottom: 1.25rem;
+}
+
+label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--texto-principal);
+}
+
+input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--borda);
+    border-radius: calc(var(--raio) / 2);
+    background: var(--fundo);
+    color: var(--texto-principal);
+    font-size: 1rem;
+    transition: var(--transicao);
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primaria);
+    box-shadow: 0 0 0 3px var(--primaria-clara);
+}
+
+/* ==========================================================================
+   CORREÇÃO DE MÍDIAS (VÍDEO E INFOGRÁFICO)
+   ========================================================================== */
+.video-container {
+    width: 100%;
+    border-radius: calc(var(--raio) / 2);
+    overflow: hidden;
+    background: #000;
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.infografico-container {
+    width: 100%;
+    max-height: 450px;
+    overflow-y: auto;
+    border: 1px solid var(--borda);
+    border-radius: calc(var(--raio) / 2);
+    background: #f0f0f0;
+    padding: 0.5rem;
+}
+
+.infografico-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+
+/* ==========================================================================
+   BOTÕES, BADGES E ELEMENTOS DE APOIO
+   ========================================================================== */
+.btn {
+    display: block;
+    width: 100%;
+    background-color: var(--primaria);
+    color: #ffffff;
+    padding: 0.75rem;
+    border-radius: calc(var(--raio) / 2);
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    transition: var(--transicao);
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.btn-back {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    color: var(--primaria);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background-color: var(--primaria-clara);
+    color: var(--primaria);
+    margin-bottom: 1rem;
+}
+
+.text-support {
+    color: var(--texto-apoio);
+}

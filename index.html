@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luz & Pele - Acesso</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Lexend:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primaria: #0f4c81;
+            --primaria-clara: #e8f0f6;
+            --fundo: #fcfcfd;
+            --card: #ffffff;
+            --texto-principal: #1a1c1e;
+            --texto-apoio: #49454f;
+            --borda: #e0e2e6;
+            --raio: 16px;
+            --transicao: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --sombra: 0 4px 20px -5px rgba(0, 0, 0, 0.08);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --fundo: #0b0e14;
+                --card: #161b22;
+                --texto-principal: #f0f6fc;
+                --texto-apoio: #8b949e;
+                --borda: #30363d;
+                --primaria-clara: #162a3d;
+            }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--fundo); color: var(--texto-principal); display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 1rem; }
+        
+        .login-card { background: var(--card); border: 1px solid var(--borda); border-radius: var(--raio); padding: 2.5rem; max-width: 400px; width: 100%; box-shadow: var(--sombra); text-align: center; }
+        h1 { font-family: 'Lexend', sans-serif; color: var(--primaria); margin-bottom: 0.5rem; font-size: 2rem; }
+        p { color: var(--texto-apoio); margin-bottom: 2rem; font-size: 0.95rem; }
+        
+        .form-group { text-align: left; margin-bottom: 1.25rem; }
+        label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--texto-principal); }
+        input { width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--borda); border-radius: calc(var(--raio) / 2); background: var(--fundo); color: var(--texto-principal); font-size: 1rem; transition: var(--transicao); }
+        input:focus { outline: none; border-color: var(--primaria); box-shadow: 0 0 0 3px var(--primaria-clara); }
+        
+        .btn { display: block; width: 100%; background-color: var(--primaria); color: #ffffff; padding: 0.75rem; border-radius: calc(var(--raio) / 2); text-decoration: none; font-weight: 600; text-align: center; transition: var(--transicao); border: none; cursor: pointer; font-size: 1rem; margin-top: 1.5rem; }
+        .btn:hover { opacity: 0.9; transform: translateY(-1px); }
+    </style>
+</head>
+<body>
+
+    <div class="login-card">
+        <h1>Luz & Pele</h1>
+        <p>Insira suas credenciais para acessar o guia especializado de cuidados.</p>
+        
+        <form action="painel.html" method="GET">
+            <div class="form-group">
+                <label for="email">E-mail de Acesso</label>
+                <input type="email" id="email" required placeholder="seu@email.com">
+            </div>
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" required placeholder="••••••••">
+            </div>
+            <button type="submit" class="btn">Entrar no Guia</button>
+        </form>
+    </div>
+
+</body>
+</html>
