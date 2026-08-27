@@ -252,3 +252,228 @@ video {
 .text-support {
     color: var(--texto-apoio);
 }
+        :root {
+            --primaria: #0f4c81;
+            --primaria-clara: #e8f0f6;
+            --fundo: #fcfcfd;
+            --card: #ffffff;
+            --texto-principal: #1a1c1e;
+            --texto-apoio: #49454f;
+            --borda: #e0e2e6;
+            --raio: 16px;
+            --transicao: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --sombra: 0 4px 20px -5px rgba(0, 0, 0, 0.08);
+            --perigo: #dc2626;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --fundo: #0b0e14;
+                --card: #161b22;
+                --texto-principal: #f0f6fc;
+                --texto-apoio: #8b949e;
+                --borda: #30363d;
+                --primaria-clara: #162a3d;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--fundo);
+            color: var(--texto-principal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            line-height: 1.6;
+            transition: var(--transicao);
+        }
+
+        /* Classe utilitária para alternar visibilidade */
+        .hidden {
+            display: none !important;
+        }
+
+        /* --- TELA DE ACESSO --- */
+        .login-card {
+            background: var(--card);
+            border: 1px solid var(--borda);
+            border-radius: var(--raio);
+            padding: 2.5rem;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: var(--sombra);
+            text-align: center;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .login-card h1 {
+            font-family: 'Lexend', sans-serif;
+            color: var(--primaria);
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .login-card p {
+            color: var(--texto-apoio);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            background-color: var(--primaria);
+            color: #ffffff;
+            padding: 0.75rem;
+            border-radius: calc(var(--raio) / 2);
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: var(--transicao);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* --- TELA DE CONTEÚDO (GUIA) --- */
+        .container {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-family: 'Lexend', sans-serif;
+            font-size: 2.2rem;
+            color: var(--primaria);
+            margin-bottom: 0.5rem;
+        }
+        
+        .btn-back {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            color: var(--primaria);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--transicao);
+        }
+
+        .btn-back:hover {
+            opacity: 0.8;
+            transform: translateX(-2px);
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background-color: var(--primaria-clara);
+            color: var(--primaria);
+            margin-bottom: 1rem;
+        }
+        
+        .text-support {
+            color: var(--texto-apoio);
+        }
+
+        /* Estrutura de Mídia */
+        .media-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .media-section {
+                grid-template-columns: 1fr 1fr;
+            }
+            /* Alinha os elementos no topo da página quando o conteúdo longo estiver ativo */
+            body.content-active {
+                align-items: flex-start;
+            }
+        }
+
+        .media-card {
+            background: var(--card);
+            border: 1px solid var(--borda);
+            border-radius: var(--raio);
+            padding: 1.5rem;
+            box-shadow: var(--sombra);
+        }
+        
+        .media-card h2 {
+            font-family: 'Lexend', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Correção do Vídeo - Player incorporado do Google Drive */
+        .video-container {
+            width: 100%;
+            border-radius: calc(var(--raio) / 2);
+            overflow: hidden;
+            background: #000;
+            aspect-ratio: 16/9;
+        }
+        
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Correção do Infográfico - Scroll responsivo para imagens longas */
+        .infografico-container {
+            width: 100%;
+            max-height: 450px;
+            overflow-y: auto;
+            border: 1px solid var(--borda);
+            border-radius: calc(var(--raio) / 2);
+            background: #f0f0f0;
+            padding: 0.5rem;
+        }
+        
+        .infografico-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+        }
+
+        /* Animação de transição suave */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
